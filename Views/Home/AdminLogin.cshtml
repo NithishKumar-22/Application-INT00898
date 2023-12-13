@@ -1,0 +1,49 @@
+@model Admin
+@{
+    ViewData["Title"] = "AdminLogin";
+}
+<section class="vh-100">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 text-black">
+
+        <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+          <form style="width: 23;" method="post">
+
+            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Login</h3>
+
+            <div class="form-outline mb-4">
+              <input asp-for="AdminID" class="form-control form-control-lg" pattern="^[0-9]*$" title="Admin ID must contain only numbers" required/>
+              <label asp-for="AdminID" class="form-label" >Admin ID</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input asp-for="AdminPassword" type="Password" class="form-control form-control-lg" pattern="(?=.*\d])(?=.*[a-z])(?=.*[A-Z])(?=.*[#$!%&*?.]).{8,}" 
+              title="Must contain atleast One Number,One Uppercase,One Lowercase and One Special Character,and have atleast 8 or more characters" required/>
+              <label asp-for="AdminPassword" class="form-label" >Password</label>
+            </div>
+            <div class="form-field">
+               <p style="color:red">@ViewBag.Message</p>               
+            </div>   
+            <div>
+              <button class="btn btn-info btn-lg btn-block" type="submit" asp-controller="Admin" asp-action="Index">
+                <i class="bi bi-door-open-fill"></i>Login</button>
+            </div>
+            
+            <br>
+            <div>  
+              <button class="btn btn-info btn-lg btn-block" type="submit" asp-controller="Home" asp-action="Index">
+                <i class="bi bi-arrow-left-circle-fill"></i>Back</button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
+      <div class="col-sm-6 px-0 d-none d-sm-block">
+        <img src="../images/Admin.png" class="w-100 vh-90" style="object-fit: cover; object-position: left;">
+      </div>
+    </div>  
+  </div>
+</section>

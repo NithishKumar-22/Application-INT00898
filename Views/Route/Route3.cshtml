@@ -1,0 +1,104 @@
+@model Route
+@{
+  Layout= "_UserLayout";
+}
+<body>
+<!--Google map-->
+<div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 500px">
+  <iframe src="https://maps.google.com/maps?q=ThiruporurtoAspireSystem&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0"
+    style="border:0" allowfullscreen></iframe>
+</div>
+<form method="post" style="margin-top:-65%;" > 
+
+        <section class="vh-100" style="padding-left:380px;padding-top:150px">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100" style="padding-left:50px;">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                        <div class="card shadow-2-strong" style="border-radius: 1rem;background:white;">
+                            <div class="card-body p-5 text-center">
+
+                                <h3 class="mb-5" style="color:black;font-family:Georgia, serif;padding-top:10px">Book your Slot</h3>
+                                <br>
+                                <div class="parent1">
+                                    <select name="pickup" id="pickup" class="form-control form-control-lg"
+                                       asp-for="Pickup" style="text-align:center;width:250px" required>
+                                        <option value="Thiruporur">Thiruporur</option>
+                                    </select>
+                                </div>
+
+                                <div class="parent1">
+                                    <select name="dropoff" id="dropoff" class="form-control form-control-lg"
+                                       asp-for="Dropoff" style="text-align:center;width:250px" required>
+                                        <option value="Aspire Systems">Aspire Systems</option>
+                                    </select>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="dropdownalign">
+                                    <div class="parent2">
+                                        <div>
+                                            <label style="color:black;font-family:Georgia, serif;">Date</label>
+                                        </div>
+                                        <input type="date" id="date" name="date" 
+                                            asp-for="Date" class="form-control form-control-lg"
+                                            style="width:250px;text-align:center;color:black;font-family:Georgia, serif;"
+                                            required />
+                                        <script>
+                                            $(function () {
+                                                var dtToday = new Date();
+
+                                                var month = dtToday.getMonth() + 1;
+                                                var day = dtToday.getDate();
+                                                var year = dtToday.getFullYear();
+                                                if (month < 10)
+                                                    month = '0' + month.toString();
+                                                if (day < 10)
+                                                    day = '0' + day.toString();
+
+                                                var minDate = year + '-' + month + '-' + day;
+
+                                                $('#date').attr('min', minDate);
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+
+                                <br>
+                                <br>
+                                <br>
+
+                                <button class="button" type="submit">Book Now</button>
+                                <br>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+</body>
+<style>
+  
+    .button:hover {
+        background-color: #2EE59D;
+        box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+        color: #000;
+        transform: translateY(-7px);
+    }
+
+    .parent1 {
+        display: inline-flex;
+        text-align: center;
+        color: black;
+        font-family: Georgia, serif;
+    }
+
+    .parent2 {
+        padding-left: 5px;
+    }
+
+    .dropdownalign {
+        display: inline-flex;
+    }
+</style>

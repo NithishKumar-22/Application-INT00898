@@ -1,0 +1,13 @@
+.map-container[b-szrqp5tt0j]{
+    overflow:hidden;
+    padding-bottom:56.25%;
+    position:relative;
+    height:0;
+  }
+  .map-container iframe[b-szrqp5tt0j]{
+    left:0;
+    top:0;
+    height:90%;
+    width:50%;
+    position:absolute;
+  }
